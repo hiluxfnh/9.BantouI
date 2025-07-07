@@ -420,6 +420,9 @@ nav ul li a:hover:after {
 
 /* Responsive */
 @media (max-width: 992px) {
+    .badge-circle {
+        margin-top: 60px;
+    }
     .hero-text-container {
         grid-template-columns: 1fr;
     }
@@ -432,6 +435,9 @@ nav ul li a:hover:after {
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 40px;
+    }
+        .badge-circle {
+        margin-top: 60px;
     }
     
     .foundation-subtitle {
@@ -458,7 +464,9 @@ nav ul li a:hover:after {
     .hero h1 {
         font-size: 32px;
     }
-    
+        .badge-circle {
+        margin-top: 60px;
+    }
     .hero h1 span {
         font-size: 28px;
     }
@@ -498,14 +506,14 @@ nav ul li a:hover:after {
     color: var(--dark);
 }
 
-/* Président Section */
+/* Président Section - Version 2 colonnes */
 .president {
     background-color: var(--gray);
 }
 
 .president-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Alignement en haut */
     gap: 50px;
 }
 
@@ -514,6 +522,7 @@ nav ul li a:hover:after {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 .president-image img {
@@ -527,6 +536,54 @@ nav ul li a:hover:after {
     transform: scale(1.03);
 }
 
+/* Overlay des citations */
+.image-overlay-quotes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quote-card {
+    background: rgba(212, 175, 55, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.president-image:hover .quote-card {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.quote-card:nth-child(1) { transition-delay: 0.1s; }
+.quote-card:nth-child(2) { transition-delay: 0.3s; }
+.quote-card:nth-child(3) { transition-delay: 0.5s; }
+
+.quote-icon {
+    color: var(--dark);
+    font-size: 18px;
+    margin-top: 3px;
+}
+
+.quote-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+/* Contenu de droite */
 .president-content {
     flex: 1;
 }
@@ -539,6 +596,40 @@ nav ul li a:hover:after {
     margin-bottom: 20px;
 }
 
+/* Citation principale */
+.highlighted-quote {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--gold);
+    position: relative;
+}
+
+.highlighted-quote i {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: var(--gold);
+    opacity: 0.3;
+    font-size: 30px;
+}
+
+.highlighted-quote p {
+    font-style: italic;
+    color: var(--gold);
+    font-size: 18px;
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+.highlighted-quote small {
+    display: block;
+    margin-left: 30px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Signature */
 .signature {
     font-family: 'Dancing Script', cursive;
     font-size: 36px;
@@ -565,12 +656,40 @@ nav ul li a:hover:after {
     transform: scaleX(1);
     transform-origin: left;
 }
-.quote {
-    font-style: italic;
-    color: var(--gold);
-    margin: 20px 0;
-    border-left: 4px solid var(--gold);
-    padding-left: 15px;
+
+/* Responsive */
+@media (max-width: 992px) {
+    .president-container {
+        flex-direction: column;
+    }
+    
+    .image-overlay-quotes {
+        position: relative;
+        background: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px 0 0;
+    }
+    
+    .quote-card {
+        flex: 1 1 200px;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .quote-card {
+        flex: 1 1 100%;
+    }
+    
+    .highlighted-quote {
+        padding: 15px;
+    }
+    
+    .highlighted-quote p {
+        font-size: 16px;
+    }
 }
 /* Domaines Section */
 .domaines {
