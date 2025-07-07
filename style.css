@@ -57,7 +57,7 @@ section {
 
 /* Header */
 header {
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -419,6 +419,10 @@ nav ul li a:hover:after {
 .domaine-content h3 {
     margin-bottom: 15px;
     font-size: 24px;
+}
+
+.domaine-content span {
+    color: orange;
 }
 
 /* Actualités Section - Nouveau design */
@@ -855,6 +859,9 @@ footer:before {
     
     .btn-outline {
         margin-left: 0;
+    }
+    .header {
+    position: fixed;
     }
     
     .header-container {
